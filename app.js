@@ -57,25 +57,24 @@ app.use(function(err, req, res, next) {
 });
 
 app.get('/',function(req,res){
-  res.sendFile(path.join(__dirname+'/index.html'));
-  console.log('its index page');
+  res.send(path.join(__dirname+'/index.html'));
   //__dirname : It will resolve to your project folder.
 });
 
 app.get('/get',function(req,res){
-  res.sendFile(path.join(__dirname+'/get.html'));
+  res.send(path.join(__dirname+'/get.html'));
 });
 
 app.get('/how',function(req,res){
-  res.sendFile(path.join(__dirname+'/how.html'));
+  res.send(path.join(__dirname+'/how.html'));
 });
 
 app.get('/pri',function(req,res){
-  res.sendFile(path.join(__dirname+'/pri.html'));
+  res.send(path.join(__dirname+'/pri.html'));
 });
 
 app.get('/sup',function(req,res){
-  res.sendFile(path.join(__dirname+'/sup.html'));
+  res.send(path.join(__dirname+'/sup.html'));
 });
 
 
