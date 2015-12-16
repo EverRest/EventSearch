@@ -11,7 +11,7 @@ var users = require('./routes/users');
 var app = express();
 
 
-logger.debug("Overriding 'Express' logger");
+logger.debug("'Express' logger");
 app.use(require('morgan')({ "stream": logger.stream }));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -82,7 +82,5 @@ app.get('/sup',function(req,res){
 
 
 app.listen(3000);
-
-console.log("Running at Port 3000");
 
 module.exports = app;
