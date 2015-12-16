@@ -38,9 +38,9 @@ $(document).ready(function() {
 	//END
 
 	//LOAD MORE BUTTON
-	//$('#more_btn').click(function(){
-	//	$('#hidden_content').slideToggle().delay(700);
-	//});		
+	$('#more_btn').click(function(){
+		$('.more').slideToggle().delay(700);
+	});		
 	//END
 
 	//DATEPIKER
