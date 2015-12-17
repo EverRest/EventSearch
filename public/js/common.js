@@ -39,7 +39,7 @@ $(document).ready(function() {
 
 	//LOAD MORE BUTTON
 	$('#more_btn').click(function(){
-		$('.more').slideToggle().delay(700);
+		$('.more').slideToggle(800).delay(400);
 	});		
 	//END
 
