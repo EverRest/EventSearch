@@ -9,6 +9,7 @@
     "body-parser": "*",
     "cookie-parser": "*",
     "debug": "*",
+    "async": "*",
     "crypto-js": "*",
     "mongoose": "*",
     "nconf": "*",
