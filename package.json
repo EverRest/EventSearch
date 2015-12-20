@@ -6,15 +6,12 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "body-parser": "*",
-    "cookie-parser": "*",
     "debug": "*",
     "async": "*",
-    "crypto-js": "*",
-    "mongoose": "*",
+    "crypto-js": "3.1",
+    "mongoose": "4.3.3",
     "nconf": "*",
-    "express": "*",
-    "mongodb": "*",
+    "express": "4.*",
     "winston": "*"
   }
 }
