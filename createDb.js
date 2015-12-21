@@ -9,7 +9,7 @@ async.series([
 	createUser
 	], function(err) {
 		console.log(arguments);
-		mongoose.disconnect(callback);
+		mongoose.disconnect();
 });
 
 function open(callback) {
