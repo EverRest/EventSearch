@@ -12,6 +12,10 @@ var schema = new Schema({
 		type: String,
 		required: true
 	},
+	sex: {
+		type: String,
+		required: true
+	},
 	created: {
 		type: Date,
 		default: Date.now
