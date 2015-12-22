@@ -42,7 +42,7 @@ function createUser(callback) {
 	);
 };
 
-
+/*
 function requireEvents(callback) {
 	require('./models/event');
 
@@ -74,4 +74,4 @@ function createEvent(callback) {
 		event.save(callback);
 	}, callback
 	);
-};
+};*/

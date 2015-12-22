@@ -1,7 +1,8 @@
-var logger = require("./logger/logger");
+var logger = require('./logger/logger');
 var express = require('express');
 var http = require('http');
 var path = require('path');
+var mongoose = require('mongoose');
 //var favicon = require('serve-favicon');
 //var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -9,7 +10,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var config = require('./config');
-
+var session = require('express-session');
 
 var app = express();
 logger.debug("'Express' logger");
@@ -28,7 +29,24 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-  
+
+var MongoStore = require('connect-mongo')(session);
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  maxAge: null,
+  cookie: { secure: true },
+  store: new MongoStore({mongooseConnection: mongoose.connection})
+}))
+
+
+app.use(function(req, res, next) {
+  req.session.numberOfVisits = req.session.numberOfVisits + 1 || 1;
+  req.send("Viits: " + req.session.numberOfVisits);
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
