@@ -41,10 +41,32 @@ app.use(session({
   store: new MongoStore({mongooseConnection: mongoose.connection})
 }))
 
+var passport = require('passport')
+  , LocalStrategy = require('passport-local').Strategy;
 
-app.use(function(req, res, next) {
-  req.session.numberOfVisits = req.session.numberOfVisits + 1 || 1;
-  req.send("Viits: " + req.session.numberOfVisits);
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    User.findOne({ username: username }, function(err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  }
+));
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
 });
 
 // catch 404 and forward to error handler
