@@ -38,7 +38,7 @@
 					<form id="registration" class="reg">
 						<p>
 							<a href="#signin" class="top_button fancybox">Login/Signup </a>
-							<a href="#event_form" class="top_button fancybox">Get Listed Today</a>
+							<a href="#event_form" class="top_button fancybox">Add New Event</a>
 						</p>
 					</form>
 				</div>
@@ -52,13 +52,7 @@
 								<a href="#" class="active">Home</a>
 							</li>
 							<li>
-								<a href="get.html" target="_blank">Get Started</a>
-							</li>
-							<li>
 								<a href="how.html">How it works</a>
-							</li>
-							<li>
-								<a href="pri.html">Pricing</a>
 							</li>
 							<li>
 								<a href="sup.html">Support</a>
@@ -1177,7 +1171,7 @@
       };
 
       infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
+      infoWindow.setContent('I found you!');
       map.setCenter(pos);
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());

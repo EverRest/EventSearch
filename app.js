@@ -105,16 +105,8 @@ app.get('/',function(req,res, next){
   //__dirname : It will resolve to your project folder.
 });
 
-app.get('/get',function(req,res, next){
-  res.send(path.join(__dirname+'/get.html'));
-});
-
 app.get('/how',function(req,res, next){
   res.send(path.join(__dirname+'/how.html'));
-});
-
-app.get('/pri',function(req,res, next){
-  res.send(path.join(__dirname+'/pri.html'));
 });
 
 app.get('/sup',function(req,res, next){
